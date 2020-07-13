@@ -1,8 +1,8 @@
 
-USE best_burgers;
+INSERT INTO burgers (burger_name, devoured) VALUES ('Vegetarian', true);
+INSERT INTO burgers (burger_name, devoured) VALUES ('Double Patty Bizon', true);
+INSERT INTO burgers (burger_name, devoured) VALUES ('Philly Cheese Steak', true);
 
-
-INSERT INTO burgers (name, yummy) VALUES ('Vegetarian', true);
-INSERT INTO burgers (name, yummy) VALUES ('Double patty bizon', true);
+--TRUNCATE TABLE burgers;
 
 SELECT*FROM burgers;
