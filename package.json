@@ -1,0 +1,26 @@
+{
+  "name": "burger-app",
+  "version": "1.0.0",
+  "description": "You can use the [editor on GitHub](https://github.com/szaster/Burger-App/edit/master/README.md) to maintain and preview the content for your website in Markdown files.",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^5.0.0",
+    "mysql2": "^2.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/szaster/Burger-App.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/szaster/Burger-App/issues"
+  },
+  "homepage": "https://github.com/szaster/Burger-App#readme"
+}
