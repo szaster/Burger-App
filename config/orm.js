@@ -34,6 +34,15 @@ const orm = {
       callback(result);
     });
   },
-};
+  updateOne: (tableName, cols, vals, place, callback) => {
+    const querySring = `Update ${tableName} SET ${col.toString()} = ? WHERE ${place}`;
 
+    connection.query(querySring, (err, result) => {
+      if (err) throw err;
+      console.log("Sucesfully Updated");
+      callback(result);
+    });
+  },
+};
+///Export orm
 module.exports = orm;
