@@ -4,12 +4,15 @@ const exphbs = require("express-handlebars");
 const app = express();
 
 // Set the port of our application
-// process.env.PORT lets the port be set by Heroku
-const PORT = process.env.PORT || 8000;
+// process.env.PORT lets the port be set for Express and Heroku
 
-// Serve static content for the app from the "public" directory in the application directory.
+let PORT = process.env.PORT || 8000;
+
+// Serve Static Content Such as CSS, JS, for the App from the "public"
+// directory in the Application Directory.
 app.use(express.static("public"));
-// Parse application body as JSON
+// Parse application body as JSON.
+// Adds Additional Functionality to Express Using Middleware body-parser
 app.use(express.urlencoded({ extended: true })); //???
 app.use(express.json());
 
