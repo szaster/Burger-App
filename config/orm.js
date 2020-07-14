@@ -1,6 +1,6 @@
 const connection = require("./config.connection.js");
 
-const tableName = "burgers";
+// const tableName = "burgers";
 
 ////Helper function///////
 // Let's say we want to pass 3 values into the mySQL query.
@@ -34,7 +34,7 @@ const orm = {
       callback(result);
     });
   },
-  updateOne: (tableName, cols, vals, place, callback) => {
+  updateOne: function (tableName, cols, vals, place, callback) {
     const querySring = `Update ${tableName} SET ${col.toString()} = ? WHERE ${place}`;
 
     connection.query(querySring, (err, result) => {
