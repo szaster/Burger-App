@@ -10,12 +10,14 @@
 <div class="container">
     <div class="row justify-content-md-center">
         <div class="col-md-auto">
-            <p>Add a burger to your bucket list!</p>
+            <h2>Add a burger to your bucket list!</h2>
+            {{!-- <p style="color:whitesmoke;">Add a burger to your bucket list!</p> --}}
             <input id="burgerName" type="text" placeholder="Burger name">
             <button id="addBurger" type="button">Add</button>
+            <br><br><br>
         </div>
         <div class="col-md-auto">
-            <p class="text-light bg dark"> Burgers to be eaten! </p>
+            <p style="color:whitesmoke;"><strong>Burgers to be eaten:</strong> </p>
             {{#each burger}}
             {{#unless devoured}}
             {{this.burger_name}}
@@ -24,8 +26,9 @@
             {{/unless}}
             {{/each}}
         </div>
+        <br><br>
         <div class="col-md-auto">
-            <p class="text-light bg dark"> Eaten burgers! </p>
+            <p style="color:whitesmoke;"><strong>Eaten burgers:</strong> </p>
             {{#each burger}}
             {{#if devoured}}
             {{this.burger_name}}

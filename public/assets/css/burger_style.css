@@ -10,6 +10,8 @@ body {
   grid-template-rows: 50px 1fr 20px;
   grid-template-areas: "headerSection" "middleSection" "footerSection";
   grid-row-gap: 10px;
+  color: purple;
+  font-size: large;
 }
 body .center {
   justify-self: center;
