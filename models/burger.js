@@ -1,23 +1,29 @@
 // Import the ORM to create functions that will interact with the database.
 const orm = require("../config/orm.js");
 
+const burgerTableName = "burgers";
+
 /////Burger model object//////
 const burger = {
   selectAllBurgers: (callback) => {
-    orm.selectAll("burgers", (result) => {
+    orm.selectAll(burgerTableName, (result) => {
       callback(result);
     });
   },
 
-  insertNew: (cols, vals, callback) => {
+  insertNew: (burger, callback) => {
+    const name = burger.name;
+    const devoured = burger.devoured;
     //Execute orm function insertone to post data into database
-    orm.insertOne("burgers", cols, vals, (result) => {
+    const columns = ["burger_name", "devoured"];
+    const values = [name, devoured];
+    orm.insertOne(burgerTableName, columns, values, (result) => {
       console.log("Insert new burger done");
       callback(result);
     });
   },
   updateOneBurger: (cols, vals, condition, callback) => {
-    orm.updateOne("burgers", cols, vals, condition, (result) => {
+    orm.updateOne(burgerTableName, cols, vals, condition, (result) => {
       callback(result);
     });
   },

@@ -4,14 +4,14 @@ const express = require("express");
 const router = express.Router();
 
 // Import the model (burger.js) to use its database functions.
-const burger = require("../models/burger.js");
+const burgerModel = require("../models/burger.js");
 
 // Create all routes and set up logic within those routes
 
 // GET routes
 
 router.get("/", function (req, res) {
-  burger.selectAllBurgers((data) => {
+  burgerModel.selectAllBurgers((data) => {
     let handlebarsObject = {
       burger: data,
     };
@@ -20,15 +20,15 @@ router.get("/", function (req, res) {
   });
 });
 
-// POST routes
+// POST routes used to insert new burgers
 router.post("/api/burger", function (req, res) {
-  console.log("Api received", req.body);
-  //   const burger = { name: req.body.burger_name, devoured: req.body.devoured };
-  //   burger.insertNew(burger, function (result) {
-  //     //send back the id of a new burger
-  //     console.log(result);
-  //     res.json(result);
-  //   });
+  // add defauft devour values
+  const burger = { name: req.body.burger_name, devoured: false };
+  burgerModel.insertNew(burger, function (result) {
+    //send back the id of a new burger
+    console.log(result.insertId);
+    res.status(200).json({ id: result.insertId });
+  });
 });
 
 // UPDATE routes
@@ -39,7 +39,7 @@ router.put("api/burger/:id", function (req, res) {
   console.log("condition", condition);
   console.log("Devoured state:", req.body.devoured);
 
-  burger.updateOneBurger(
+  burgerModel.updateOneBurger(
     ["devoured"],
     [req.body.devoured],
     condition,

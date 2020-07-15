@@ -7,7 +7,9 @@ function addBurger() {
   };
   if (burger.burger_name) {
     console.log("burger name is:", burger);
-    $.post("/api/burger", burger);
+    $.post("/api/burger", burger).done(() => {
+      location.reload();
+    });
   } else {
     window.alert("Cannot add burger with no name.");
   }

@@ -15,6 +15,15 @@ function printQuestionMarks(num) {
   return array.toString();
 }
 
+// Used to conditionally insert quotes if value is a string;
+function formatValues(val) {
+  if (typeof val === "string") {
+    return `'${val}'`;
+  } else {
+    return `${val}`;
+  }
+}
+
 //ORM Object for all SQL statement functions
 const orm = {
   selectAll: function (tableName, callback) {
@@ -24,15 +33,12 @@ const orm = {
       callback(result);
     });
   },
-  insertOne: function (burger, callback) {
-    //const querySring = `INSERT INTO ${tableName} (${cols.toString()})
-    // (${printQuestionMarks(vals.length)});`;
 
-    // const vals = { name: "Vegitarian", devoured: true };
-
-    const columns = "(burger_name, devoured)";
-    const values = `('${burger.name}', ${burger.devoured})`;
-    const queryString = `INSERT INTO ${tableName} ${columns} VALUES ${values}`;
+  insertOne: function (tableName, columns, values, callback) {
+    // using array's join to concatenate array
+    const sqlCols = `(${columns.join(",")})`;
+    const sqlVals = `(${values.map(formatValues).join(",")})`;
+    const queryString = `INSERT INTO ${tableName} ${sqlCols} VALUES ${sqlVals}`;
 
     // INSERT INTO burgers (burger_name, devoured) VALUES ('Vegetarian', true);
     connection.query(queryString, (err, result) => {
