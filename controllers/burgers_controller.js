@@ -22,12 +22,13 @@ router.get("/", function (req, res) {
 
 // POST routes
 router.post("/api/burger", function (req, res) {
-  const burger = { name: req.body.burger_name, devoured: req.body.devoured };
-  burger.insertNew(burger, function (result) {
-    //send back the id of a new burger
-    console.log(result);
-    res.json(result);
-  });
+  console.log("Api received", req.body);
+  //   const burger = { name: req.body.burger_name, devoured: req.body.devoured };
+  //   burger.insertNew(burger, function (result) {
+  //     //send back the id of a new burger
+  //     console.log(result);
+  //     res.json(result);
+  //   });
 });
 
 // UPDATE routes
