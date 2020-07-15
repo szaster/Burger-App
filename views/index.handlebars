@@ -1,0 +1,32 @@
+<div id="headerSection">
+    <h1>Burger eater app! Eat The Yummy Burger!</h1>
+</div>
+
+
+{{!-- Uneaten Burgers --}}
+
+
+
+<!-- Center -->
+
+<div class="center">
+    <input id="burgerName" type="text" placeholder="Burger name">
+    <button id="addBurger" type="button">Add Burger</button>
+</div>
+
+
+
+<div class="uneaten center">
+    {{#each burgers}}
+    {{#unless devoured}}
+    {{> burgers/burgerBlock devoured=true}}
+    {{/unless}}
+    {{/each}}
+</div>
+
+
+<div id="footerSection">
+    <p>Created By Svitlana
+        <a href="mailto:szaster@protonmail.com"></a>
+    </p>
+</div>
