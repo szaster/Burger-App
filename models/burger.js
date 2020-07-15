@@ -16,8 +16,8 @@ const burger = {
       callback(result);
     });
   },
-  updateOneBurger: (cols, vals, place, callback) => {
-    orm.updateOne("burgers", cols, vals, place, (result) => {
+  updateOneBurger: (cols, vals, condition, callback) => {
+    orm.updateOne("burgers", cols, vals, condition, (result) => {
       callback(result);
     });
   },
