@@ -1,5 +1,5 @@
 <div id="headerSection">
-    <h1>Burger eater app! Eat The Yummy Burger!</h1>
+    <h2>Burger eater app! Eat The Yummy Burger!</h2>
 </div>
 
 
@@ -7,25 +7,47 @@
 
 
 
-<!-- Center -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <input id="burgerName" type="text" placeholder="Burger name:">
+            <button id="addBurger" type="button">Add Burger</button>
+        </div>
+        <div class="col-sm">
+            <p class="text-light bg dark"> Burgers to be eaten! </p>
+            {{#each burger}}
 
-<div class="center">
-    <input id="burgerName" type="text" placeholder="Burger name">
-    <button id="addBurger" type="button">Add Burger</button>
+            {{#unless devoured}}
+            {{this.burger_name}}
+            <button class="eat_me">Eat me!</button>
+            <br>
+            {{/unless}}
+            {{/each}}
+            </p>
+        </div>
+        <div class="col-sm">
+            <p class="text-light bg dark"> Eaten burgers! </p>
+
+            {{#each burger}}
+            {{#if devoured}}
+            {{this.burger_name}}
+            <button class="repeat"> Eat me again!</button>
+            <br>
+            {{/if}}
+            {{/each}}
+
+            </p>
+        </div>
+
+    </div>
 </div>
 
 
+<div class="container">
 
-<div class="uneaten center">
-    {{#each burgers}}
-    {{#unless devoured}}
-    {{> burgers/burgerBlock devoured=true}}
-    {{/unless}}
-    {{/each}}
 </div>
 
-
-<div id="footerSection">
+<div class="footer">
     <p>Created By Svitlana
         <a href="mailto:szaster@protonmail.com"></a>
     </p>

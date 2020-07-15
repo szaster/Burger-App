@@ -12,7 +12,7 @@ const burger = require("../models/burger.js");
 
 router.get("/", function (req, res) {
   burger.selectAllBurgers((data) => {
-    const handlebarsObject = {
+    let handlebarsObject = {
       burger: data,
     };
     console.log("Displayed Burgers", handlebarsObject);

@@ -11,7 +11,7 @@ body {
   grid-template-areas: "headerSection" "middleSection" "footerSection";
   grid-row-gap: 10px;
 }
-body.center {
+body .center {
   justify-self: center;
   align-self: center;
 }
@@ -23,16 +23,10 @@ body #headerSection {
   position: relative;
   min-height: 100%;
 }
-body #headerSection h1,
-h2 {
+body #headerSection h2 {
   margin: 0;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
-body #middleSection .centerMiddle {
-  display: grid;
-  grid-area: centerMiddle;
-  border: 1px solid red;
 }
