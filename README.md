@@ -21,7 +21,7 @@ This application records your most wanted delicious burgers into a very special 
 ## Installation and usage
 
 No installation. Just open the [Live website on Heroku](https://powerful-thicket-03747.herokuapp.com/).
-In order to look at/play with the underlying code, clone the code on your machine and install and import dependencies with `npm install`. Run the application with a command `node server.js` in a terminal.
+In order to look at/play with the underlying code, clone the code on your machine, install and import dependencies with `npm install`. Run the application with a command `node server.js` in a terminal.
 
 ## Credits
 
