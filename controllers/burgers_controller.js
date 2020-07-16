@@ -34,7 +34,7 @@ router.post("/api/burger", function (req, res) {
 // UPDATE routes
 
 router.put("/api/burger/:id", function (req, res) {
-  if (req.body.devoured) {
+  if (req.body.devoured === "true") {
     burgerModel.eatBurger(req.params.id, function (result) {
       res.status(200).json({ id: req.params.id });
     });

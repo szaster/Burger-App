@@ -22,11 +22,13 @@ const burger = {
       callback(result);
     });
   },
-  updateOneBurger: (cols, vals, condition, callback) => {
-    orm.updateOne(burgerTableName, cols, vals, condition, (result) => {
-      callback(result);
-    });
-  },
+
+  // updateOneBurger: (cols, vals, condition, callback) => {
+  //   orm.updateOne(burgerTableName, cols, vals, condition, (result) => {
+  //     callback(result);
+  //   });
+  // },
+
   eatBurger: (id, callback) => {
     const column = "devoured";
     const value = true;
@@ -35,12 +37,14 @@ const burger = {
       callback(result);
     });
   },
+
   eatBurgerAgain: (id, callback) => {
     const column = "devoured";
     const value = false;
     const condition = `id = ${id}`;
     orm.updateOne(burgerTableName, column, value, condition, (result) => {
       callback(result);
+    });
   },
 };
 

@@ -32,7 +32,7 @@
             {{#each burger}}
             {{#if devoured}}
             {{this.burger_name}}
-            <button class="repeat"> Eat me again!</button>
+            <button class="repeat" data-id="{{this.id}}"> Eat me again!</button>
             <br>
             {{/if}}
             {{/each}}

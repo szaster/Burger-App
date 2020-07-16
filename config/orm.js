@@ -51,7 +51,6 @@ const orm = {
     const querySring = `Update ${tableName} SET ${column} = ${value} WHERE ${condition};`;
     connection.query(querySring, (err, result) => {
       if (err) throw err;
-      console.log("Sucesfully Updated");
       callback(result);
     });
   },
