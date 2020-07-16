@@ -14,9 +14,23 @@ function addBurger() {
     window.alert("Cannot add burger with no name.");
   }
 }
+
+// Update Burger from Database Button
+function eatBurger() {
+  console.log("Eat Burger Button clicked");
+  // Create an Object to be Sent to the Backend
+  const burgerID = $(this).data("id");
+  console.log("Brgr ID:", burgerID);
+}
+
+function eatBurgerAgain() {
+  console.log("Eat Burger again Button clicked");
+}
+
 function attachEventHandlers() {
   $("#addBurger").on("click", addBurger);
+  console.log($(".eat_me"));
+  $(".eat_me").on("click", eatBurger);
+  $(".repeat").on("click", eatBurgerAgain);
 }
 $(document).ready(attachEventHandlers);
-
-//Add Burger to Datab

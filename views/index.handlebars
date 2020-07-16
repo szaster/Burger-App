@@ -21,13 +21,13 @@
             {{#each burger}}
             {{#unless devoured}}
             {{this.burger_name}}
-            <button class="eat_me">Eat me!</button>
+            <button class="eat_me" data-id="{{this.id}}">Eat me!</button>
             <br>
             {{/unless}}
             {{/each}}
         </div>
         <br><br>
-        <div class="col-md-auto">
+        <div class=" col-md-auto">
             <p style="color:whitesmoke;"><strong>Eaten burgers:</strong> </p>
             {{#each burger}}
             {{#if devoured}}
@@ -43,6 +43,5 @@
 
 <div class="footer">
     <p>Created By Svitlana
-        <a href="mailto:szaster@protonmail.com"></a>
     </p>
 </div>
