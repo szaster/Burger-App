@@ -33,21 +33,16 @@ router.post("/api/burger", function (req, res) {
 
 // UPDATE routes
 
-router.put("api/burger/:id", function (req, res) {
-  const burgerID = req.params.id;
-  const condition = "id =" + burgerID;
-  console.log("condition", condition);
-  console.log("Devoured state:", req.body.devoured);
-
-  burgerModel.updateOneBurger(
-    ["devoured"],
-    [req.body.devoured],
-    condition,
-    (result) => {
-      //Send back the ID of updated burger
-      res.json(result);
-    }
-  );
+router.put("/api/burger/:id", function (req, res) {
+  if (req.body.devoured) {
+    burgerModel.eatBurger(req.params.id, function (result) {
+      res.status(200).json({ id: req.params.id });
+    });
+  } else {
+    burgerModel.eatBurgerAgain(req.params.id, function (result) {
+      res.status(200).json({ id: req.params.id });
+    });
+  }
 });
 
 module.exports = router;

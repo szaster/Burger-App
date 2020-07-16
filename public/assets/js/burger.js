@@ -21,6 +21,15 @@ function eatBurger() {
   // Create an Object to be Sent to the Backend
   const burgerID = $(this).data("id");
   console.log("Brgr ID:", burgerID);
+  const request = { type: "PUT", data: { devoured: true } };
+  $.ajax(`/api/burger/${burgerID}`, request)
+    .done(() => {
+      console.log("brgr moved to eaten", request);
+      location.reload();
+    })
+    .fail(() => {
+      // window.alert("Could not commit data");
+    });
 }
 
 function eatBurgerAgain() {

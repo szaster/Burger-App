@@ -47,9 +47,8 @@ const orm = {
       callback(result);
     });
   },
-  updateOne: function (tableName, cols, vals, condition, callback) {
-    const querySring = `Update ${tableName} SET ${col.toString()} = ? WHERE ${place}`;
-
+  updateOne: function (tableName, column, value, condition, callback) {
+    const querySring = `Update ${tableName} SET ${column} = ${value} WHERE ${condition};`;
     connection.query(querySring, (err, result) => {
       if (err) throw err;
       console.log("Sucesfully Updated");

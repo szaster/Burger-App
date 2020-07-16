@@ -27,6 +27,15 @@ const burger = {
       callback(result);
     });
   },
+  eatBurger: (id, callback) => {
+    const column = "devoured";
+    const value = true;
+    const condition = `id = ${id}`;
+    orm.updateOne(burgerTableName, column, value, condition, (result) => {
+      callback(result);
+    });
+  },
+  eatBurgerAgain: (id, callback) => {},
 };
 
 // Export the database functions for the controller (burgerController.js).
