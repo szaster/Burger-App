@@ -34,6 +34,13 @@ function eatBurger() {
 
 function eatBurgerAgain() {
   console.log("Eat Burger again Button clicked");
+  const burgerID = $(this).data("id");
+  console.log("Brgr ID:", burgerID);
+  const request = { type: "PUT", data: { devoured: false } };
+  $.ajax(`/api/burger/${burgerID}`, request).done(() => {
+    console.log("brgr moved to eaten", request);
+    location.reload();
+  });
 }
 
 function attachEventHandlers() {
